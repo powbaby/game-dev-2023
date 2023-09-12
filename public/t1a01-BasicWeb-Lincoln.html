@@ -1,26 +1,36 @@
 <html>
   <head>
+    <link rel="stylesheet" href="GlobalCSS.css">
     <title> Basic web stuff </title>
   </head>
   <body>
     <h5>Version 0.0.3</h5>
     
-    <h1> align=center>T3A01-Web-Basics-by-Lincoln.html</h1>
+    <h1 align=center>T3A01-Web-Basics-by-Lincoln.html</h1>
     
-    <a> href="http://www.google.ca">Link to Google</a><br>
+    <a href="http://www.google.ca">Link to Google</a><br>
     Plain Text <b> Bold </b> and <i> Italic </i> can you put them together<br>
     <b><i> Bold and Italic </i> </b> <br>
 
+    <h3> Mr.Ellis' Top 10 Codes of All Time!</h3>
+    <button onclick="myFunction(0)">0. Pseudo Code</button>
+    <button onclick="myFunction(1)">1. Input/Output</button>
+    <button onclick="myFunction(2)">2. Variables</button>
+    <button onclick="myFunction(3)">3. Loops</button>
+    <button onclick="myFunction(4)">4. Decisions</button>
+    <button onclick="myFunction(5)">5. Functions</button>
+    <button onclick="myFunction(6)">6. Events</button>
+    <button onclick="myFunction(7)">7. Arrays</button>
+    <button onclick="myFunction(8)">8. Objects</button>
+    <button onclick="myFunction(9)">9. Classes</button>
+    <div id="bruh">...</div>
+
     <hr>
     This is an image <br>
-    <img width=200
-      src="http://hairlesscatblog.com/wp-content/uploads/2014/02/types-of-hairless-cats.jpg"><br><br>
+    <img src="HankDisney.jpeg"><br><br>
 
     Youtube Embedded video <br>
-    <iframe> width="300" hieight="200" src="https://www.youtube.com/embed/kUTGTdc-qbg"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/usYcLSzUBsg?si=qbe_NZ1wFwYHD9a8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <hr>
     <div>This is a </div>
     <div>div</div>
@@ -28,6 +38,42 @@
     <span>This is </span>
     <span> a span</span>
 
-    <h3> </h3>
+    <script> 
+      var number
+      function myFunction(number) { 
+        switch(number){
+          case 0: 
+            document.getElementById('bruh').innerHTML = "Hello don\'t world"
+            break;
+          case 1:
+            document.getElementById('bruh').innerHTML = `Input sndsjdfaiksdfm <br> Output is...`
+            break;
+          case 2:
+            document.getElementById('bruh').innerHTML = `Variables are Containers for Storing Data <br><pre> x = 3   </pre>`
+            break;
+          case 3:
+            document.getElementById('bruh').innerHTML = `It Loops! <br><pre> for (let i = 0; i < 7; i++){ output }  </pre>`
+            break;
+          case 4:
+            document.getElementById('bruh').innerHTML = `Decisions use the if statement to make true/false variable decisions <br><pre> if (hour<18){greeting=\'good day\';}</pre>`
+            break;
+          case 5:
+            document.getElementById('bruh').innerHTML = `A function preforms a task when it is called <br><pre> function myFunction(){ Task }  </pre>`
+            break;
+          case 6:
+            document.getElementById('bruh').innerHTML = `Trigger code <br><pre> onClick(), onkeydown(), onload()  </pre>`
+            break;
+          case 7:
+            document.getElementById('bruh').innerHTML = `A list of variables <br><pre> const Shoes = ["Nike", "Jordan", "Converse"]  </pre>`
+            break;
+          case 8:
+            document.getElementById('bruh').innerHTML = `A variable with properties and methods <br><pre> const car = {type:"Batmobile", model:"cuh", color:"BLACK"};  </pre>`
+            break;
+          case 9:
+            document.getElementById('bruh').innerHTML = `Templates to create objects <br><pre> class Sports { <br> constructor(BallType, Rules) { <br> this.BallType=BallType <br> this.Rules=Rules } <br> }  </pre>`
+            break;
+        }
+      }
+    </script>
       </body>
     </html>
