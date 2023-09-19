@@ -2,6 +2,33 @@
     <head>
         <link rel="stylesheet" href="GlobalCSS.css"
         <style>
+
+            p {outline-color:red;}
+
+            p.dotted {outline-style: dotted;}
+            p.dashed {outline-style: dashed;}
+            p.solid {outline-style: solid;}
+            p.double {outline-style: double;}
+            p.groove {outline-style: groove;}
+            p.ridge {outline-style: ridge;}
+            p.inset {outline-style: inset;}
+            p.outset {outline-style: outset;}
+
+            div {
+                background-color: lightgrey;
+                width: 300px;
+                border: 15px solid green;
+                padding: 50px;
+                margin: 20px;
+              }
+
+              div {
+                background-color: coral;
+                width: 200px;
+                height: 65px;
+                border: 1px solid;
+                overflow: visible;
+              }
         
         </style>
     </head>
@@ -36,11 +63,49 @@
             Advanced see if you move this textarea
         </textarea><br>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br>
+        
+            <p id="demo">This is an example paragraph.</p>
 
-        <img src="shrek.jfif" width="500" style="border-radius:200px">
+            <button type="button" onclick="myFunction()">Align text</button>
+        
+        <br><br>
+        
+            <h2>The outline-style Property</h2>
+
+                <p class="dotted">A dotted outline</p>
+                <p class="dashed">A dashed outline</p>
+                <p class="solid">A solid outline</p>
+                <p class="double">A double outline</p>
+                <p class="groove">A groove outline. The effect depends on the outline-color value.</p>
+                <p class="ridge">A ridge outline. The effect depends on the outline-color value.</p>
+                <p class="inset">An inset outline. The effect depends on the outline-color value.</p>
+                <p class="outset">An outset outline. The effect depends on the outline-color value.</p>
+        
+        <br><br>
+        
+            <h2>Demonstrating the Box Model</h2>
+
+                <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of: borders, padding, margins, and the actual content.</p>
+
+                <div>This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+        <br><br>
+        
+            <h2>Overflow: visible</h2>
+
+                <p>By default, the overflow is visible, meaning that it is not clipped and it renders outside the element's box:</p>
+
+                <div>You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+        
+        <br><br><br><br>
+
+        <img src="myImage01.jpg" width="200" style="border-radius:200px">
 
          <script>
+            function myFunction() {
+  document.getElementById("demo").style.textAlign = "center";
+}
 
          </script>   
     </body>
