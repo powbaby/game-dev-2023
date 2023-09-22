@@ -10,14 +10,32 @@
         <h6>Version 0.0.1.</h6>
         <h3 align="center">T1z02-Object-Zombie-Lincoln</h3>
 
-        Do You Know <input type="text" value="Joe">?<br>
+        <script>
+
+            let Joe={
+                'mama' : true,
+                'name' : 'Joe'
+            }
+
+            let NotJoe={
+                'mama' : false,
+                'name' : 'Not Joe'
+            }
+
+        </script> 
+
+        Is <select size="1">
+            <option>Joe
+            <option>Not Joe
+        </select> Joe?<br>
+
         <input type="button" value="Check it" onclick="{
-            alert('HAHA JOEMAMA!')
-        }"><br.
+
+            alert(Joe.name + 'is' + Joe.mama)
+
+        }"><br>
+
         <div id="myDiv01">...</div><br>
-
-         <script>
-
-         </script>   
+  
     </body>
 </html>
