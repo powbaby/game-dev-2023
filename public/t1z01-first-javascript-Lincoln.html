@@ -9,6 +9,7 @@
          <script>
 
             let myOutArray = new Array()
+            let myVariable;
 
             function myPrint(myVariable){
                 let mySister
@@ -17,10 +18,13 @@
                 if (i <= 10) {mySister = 'My Brother'}
                     myOutArray[i] ='' + mySister + ' is ' + i + ' years old<br>'
                 }
-                document.write(myOutArray[1] + myOutArray[2])
+                for (k=1; k < myOutArray.length; k++) {
+                    document.write(myOutArray[k])
+                    
+                }
             }
 
-            myprint('18')
+            myPrint(18)
 
          </script>   
     </body>
