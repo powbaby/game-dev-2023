@@ -3,6 +3,22 @@
         <link rel="stylesheet" href="GlobalCSS.css">
         <style>
 
+            div {
+                width: 100px;
+                height: 50px;
+                background-color: rgb(0, 255, 170);
+                font-weight: bold;
+                position: relative;
+                animation: mymove 9s infinite;
+            }
+
+            #div1 {animation-timing-function: linear;}
+
+            @keyframes mymove {
+                from {left: 0px;}
+                to {left: 3000px;}
+            }
+
         </style>
     </head>
     <body>
@@ -27,11 +43,11 @@
         Is <select id="mySelect01" size="1" onchange="{
             myInput=document.getElementById('mySelect01').value
             } if (Joe.name == myInput && Joe.mama) {
-                document.getElementById('myDiv01').innerHTML=myInput + ' is Mama'
+                document.getElementById('myDiv03').innerHTML=myInput + ' is Mama'
             } else if (NotJoe.name == myInput && NotJoe.mama) {
-                document.getElementById('myDiv01').innerHTML=myInput + ' is Mama'
+                document.getElementById('myDiv03').innerHTML=myInput + ' is Mama'
             }    else {
-                document.getElementById('myDiv01').innerHTML=myInput + ' is Not Mama :('
+                document.getElementById('myDiv03').innerHTML=myInput + ' is Not Mama :('
             }">
 
 
@@ -41,7 +57,9 @@
             <option>Not Joe
         </select> Joe?<br>
 
-        <div id="myDiv01">...</div><br>
+        <div id="div1">Big Joe >:D</div>
+
+        <div2 id="myDiv03">...</div><br>
   
     </body>
 </html>
