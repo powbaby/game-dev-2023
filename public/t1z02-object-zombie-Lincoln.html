@@ -24,16 +24,22 @@
 
         </script> 
 
-        Is <select size="1">
+        Is <select id="mySelect01" size="1" onchange="{
+            myInput=document.getElementById('mySelect01').value
+            if (Joe.name == myInput && Joe.mama) {
+                document.getElementById('myDive01').innerHTML=myInput + 'is Mama'
+            } else if (NotJoe.name == myInput && NotJoe.mama) {
+                document.getElementById('myDive01').innerHTML=myInput + 'is Mama'
+            }    else {
+                document.getElementById('myDive01').innerHTML=myInput + 'is Not Mama :('
+            }">
+
+
+
+            <option>
             <option>Joe
             <option>Not Joe
         </select> Joe?<br>
-
-        <input type="button" value="Check it" onclick="{
-
-            alert(Joe.name + 'is' + Joe.mama)
-
-        }"><br>
 
         <div id="myDiv01">...</div><br>
   
