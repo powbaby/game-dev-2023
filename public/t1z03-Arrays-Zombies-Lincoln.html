@@ -19,8 +19,8 @@
 
             Is <select id="mySelect01" size=1 onChange="{
                 myInput = document.getElementById('mySelect01').value
-                for (myLoop=0; myLoop < 4; myLoop++){
-                    if (myCat[myLoop] == myInput){
+                for (myLoop=0; myLoop < 3; myLoop++){
+                    if (myCat[myLoop] === myInput){
                         if (isCrazy[myLoop]){
                             document.getElementById('myDiv01').innerHTML = myInput + ' Is A Nice Cat!'
                         } else {
