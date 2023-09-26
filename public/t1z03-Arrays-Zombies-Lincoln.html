@@ -1,1 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        </style>
+    </head>
+    <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">T1z03-Array-Zombie-Lincoln</h3>
+
+        <script>
+        
+            let myCat = ['Bingus','Harley','Pop Tart']
+            let isCrazy = [true, flase, true]
+
+        </script>
+
+            Is <select id="mySelect01" size=1 onChange="{
+                myInput = document.getElementById('mySelect01').value
+                for (myLoop=0; myLoop < 4; myLoop++){
+                    if (myCat[myLoop] == myInput){
+                        if (isCrazy[myLoop]){
+                            document.getElementById('myDiv01').innerHTML = myInput + ' Is A Nice Cat!'
+                        } else {
+                            document.getElementById('myDiv01').innerHTML = myInput + ' Is Feral! RUN!!'
+                        }
+                    }
+                }
+            }">
+
+            <option>
+            <option>Bingus
+            <option>Harley
+            <option>Pop Tart
+            
+                </select> a Cat? REALLY!!<br>
+
+                <div id="myDiv01">...</div><br>
+   
+    </body>
+</html>
