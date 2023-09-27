@@ -7,8 +7,11 @@
     </head>
     <body>
 
-         <h1 align=center>Hi, This is Lincoln's Index!</h1>
+        <h1 align=center>Hi, This is Lincoln's Index!</h1>
 
+        <button onclick="myFunction()">My Assignments</button>
+
+        <div id="myDIV">
         <ol>
             <li><a href="Work-Not-Screentime-Lincoln.md">Work No Screen time-Lincoln</a>
             <li><a href="https://github.com/powbaby/game-dev-2023">Repository-Lincoln</a>
@@ -20,9 +23,19 @@
             <li><a href="t1z02-object-zombie-Lincoln.html">t1z02 Object Zombie-Lincoln</a>
             <li><a href="t1z03-Arrays-Zombies-Lincoln.html">t1z03 Array Zombie-Lincoln</a>
           </ol>
+        </div>
               
         <script>
          
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
         </script>
     </body>
 </html>
