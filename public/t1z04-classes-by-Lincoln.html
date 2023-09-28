@@ -1,1 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        </style>
+    </head>
+    <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">T1z04-Classes-By-Lincoln</h3>
+
+         <script>
+
+            Class myPerson {
+                constructor(passName, passAge) {
+                    this.myName = passName;
+                    this.myAge = passAge;
+                }
+
+            myShow(){
+                document.getElementById('myDiv01').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+            }
+        } // end class myAnimal
+
+         </script>
+         
+         <input type="button" value="Class Person" onClick="{
+
+            myCharacter = new myPerson('Elon', 52)
+            myCharacter.myShow()
+
+         }">
+
+         <div id="myDiv01">...</div>
+
+    </body>
+</html>
