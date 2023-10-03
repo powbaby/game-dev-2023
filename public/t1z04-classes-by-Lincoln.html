@@ -1,38 +1,45 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="GlobalCSS.css">
-        <style>
+<head>
+    <link rel="stylesheet" href="GlobalCSS.css">
+    <style>
+    </style>
+</head>
+<body>
+    <h6>Version 0.0.1.</h6>
+    <h3 align="center">T1z04-Classes-By-Lincoln</h3>
 
-        </style>
-    </head>
-    <body>
+    <script>
+        class MyPerson {
+            constructor(passName, passAge) {
+                this.myName = passName;
+                this.myAge = passAge;
+            }
 
-        <h6>Version 0.0.1.</h6>
-        <h3 align="center">T1z04-Classes-By-Lincoln</h3>
+            myShow() {
+                return 'Hello ' + this.myName + '. You are ' + this.myAge + ' years old<br>';
+            }
+        }
 
-         <script>
-
-            Class myPerson {
-                constructor(passName, passAge) {
-                    this.myName = passName;
-                    this.myAge = passAge;
+        function extendClassAndShow() {
+            class TimeTravel extends MyPerson {
+                constructor(passName, passAge, myAge) {
+                    super(passName, passAge);
+                    this.timeTravelAge = myAge;
                 }
 
-            myShow(){
-                document.getElementById('myDiv01').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+                show() {
+                    return super.myShow() + ', but you time traveled to be in puberty again, you\'re now a teen! ' + this.timeTravelAge;
+                }
             }
-        } // end class myAnimal
 
-         </script>
-         
-         <input type="button" value="Class Person" onClick="{
+            const myPerson = new TimeTravel("Ellis", 54, 16);
+            document.getElementById("myDiv01").innerHTML = myPerson.show();
+        }
+    </script>
 
-            myCharacter = new myPerson('Elon', 52)
-            myCharacter.myShow()
+    <button onclick="extendClassAndShow()">Extend Class and Show</button>
 
-         }">
-
-         <div id="myDiv01">...</div>
-
-    </body>
+    <div id="myDiv01">...</div>
+</body>
 </html>
