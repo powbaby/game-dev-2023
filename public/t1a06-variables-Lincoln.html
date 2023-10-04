@@ -6,6 +6,37 @@
         </style>
     </head>
     <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">T1a06-Variables-Lincoln</h3>
+
+        <a href="https://www.w3schools.com/js/js_variables.asp">A good reference to variables in javascript and other languages!</a><br>
+
+        Other Languages Use: bool, int, float, char, string, int_8, int_16, etc<br>
+
+        <h4> Example Input Output Code</h4>
+
+        <pre>
+            let myIn01 = document.getElementById('myText01').value
+            document.getElementById('myDiv01').innerHTML = myIn01
+        </pre>
+
+        <h4> Example Working Code</h4>
+
+        <input id="myText01" type="text" value="The dog"><br>
+
+        <input type="button" value="Show Variable" onclick="{
+            let myIn01 = document.getElementById('myText01').value
+            document.getElementById('myDiv01').innerHTML = myIn01
+        }"><br>
+
+        <input type="button" value="Using No Variable" onclick="{
+            document.getElementById('myDiv01').innerHTML =
+            document.getElementById('myText01').value
+        }"><br>
+
+        <div id="myDiv01">...</div>
+
          <script>
 
          </script>   
