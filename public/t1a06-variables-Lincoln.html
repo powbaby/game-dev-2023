@@ -13,6 +13,7 @@
         <a href="https://www.w3schools.com/js/js_variables.asp">A good reference to variables in javascript and other languages!</a><br>
 
         Other Languages Use: bool, int, float, char, string, int_8, int_16, etc<br>
+
         Note: Javascript does use var and let for local variables.<br>
         For Global variables Mr. Ellis prefers to use document.myVarName
 
@@ -25,7 +26,7 @@
 
         <h4> Example Working Code</h4>
 
-        <input id="myText01" type="text" value="*meow*"><br>
+        <input id="myText01" type="text" value="The dog"><br>
 
         <input type="button" value="Show Variable" onclick="{
             let myIn01 = document.getElementById('myText01').value
@@ -38,6 +39,53 @@
         }"><br>
 
         <div id="myDiv01">...</div>
+
+        <h3>Mad Libs</h3>
+
+        A Name                  <input id="myText02" type=text value=" " ><br> 
+        A building Name         <input id="myText03" type=text value=" " ><br> 
+        Something you want     <input id="myText04" type=text value=" " ><br> 
+        A second name     	<input id="myText05" type=text value=" " ><br>
+        An adjective causing harm     	<input id="myText06" type=text value=" " ><br> 
+        Another name    	<input id="myText07" type=text value=" " ><br>
+
+
+        <input type=button value="Generate" onclick="{
+            let name = document.getElementById('myText02').value
+            let agency = document.getElementById('myText03').value
+            let clothing = document.getElementById('myText04').value
+            let item = document.getElementById('myText05').value
+            let action = document.getElementById('myText06').value
+            let newname = document.getElementById('myText07').value
+            document.getElementById('mad').innerHTML =  
+                    ' You Turned ' + name + ' Against Me!<br> ' +
+
+                     ' You have done that yourself.<br> ' +
+
+                     'YOU WILL NOT TAKE ' + name + ' FROM ME!!!<br>' +
+
+                     ' Your lust for ' + clothing + ' has already done that.<br> ' +
+
+                     'You have allowed this dark lord to twist your mind until now....until now, you have become the very thing you swore to destroy.<br>' +
+
+                     'Dont lecture me, ' + item + '; I see through the lies of the Jedi...i do not fear the dark side as you do!<br>' + 
+
+                     'I have brought peace...freedom....justice, and security to my new ' + agency + '.<br>' +
+
+                     'Your new ' + agency + '!?<br>' +
+
+                     'Dont make me ' + action + ' you!<br>' +
+
+                    + newname + ', my allegiance...is to the Republic! To DEMOCRACY!<br>' +
+
+                     'If youre not with me...then you are my enemy.<br>' +
+
+                     'Only a sith deals in absolutes...i will do what i must.<br>' +
+
+                     '...you will try.<br>'
+            }"><br>
+
+            <div id="mad">...</div>
 
          <script>
 
