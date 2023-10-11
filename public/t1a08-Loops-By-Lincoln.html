@@ -1,1 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        </style>
+    </head>
+    <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">T1a08-Loops-By-Lincoln</h3>
+
+        <a href="https://www.w3schools.com/js/js_loop_for.asp">A good reference to Javascript Loops</a><br>
+
+        <h4> Example of Working Code</h4>
+
+        Max loops: <input id="myNum01" type="number" value="4"><br>
+
+        <input type="button" value="Basic For Loops With Decisions" onclick="{
+            document.getElementById('myDiv01').innerHTML = ''
+            let myTemp = ''
+
+            let myMax = parseInt(document.getElementById('myNum01').value)
+
+            for(let myLoop = 0; myLoop < myMax; myLoop++ ){
+                if (myLoop * 2 > myMax){
+                    myTemp += ' cool '
+                }
+
+                myTemp += 'Loop number: ' + myLoop + '<br>'
+
+            }
+
+            document.getElementById('myDiv01').innerHTML = myTemp
+
+        }">
+
+        <div id="myDiv01">...</div>
+
+         <script>
+
+         </script>   
+    </body>
+</html>
