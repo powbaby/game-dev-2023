@@ -1,1 +1,47 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        </style>
+    </head>
+    <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">T1a09-Functions-By-Lincoln</h3>
+
+        <a href="//www.w3schools.com/js/js_functions.asp">A Good Reference To Javascript Functions</a><br>
+
+        Functions are used to organize code. Then they are "Called" elsewhere.
+        Information can also be passed to functions (that's more advanced).
+
+        <h4> Example of Functions Code</h4>
+
+        <pre>
+            function myGrabNumber(){
+                return parseInt(document.getElementById('myText01').value)
+            }
+        </pre>
+
+        <h4> Example of Working Code</h4>
+
+        <input type="button" id="myText01" value="3"><br>
+
+        <input type="button" value="Function Example" onclick="{
+            document.getElementById('myDiv01').innerHTML = myExampleFunction()
+        }">
+
+        <div id="myDiv01">...</div>
+
+         <script>
+
+            function myExampleFunction(){
+                let myIn01 = parseInt(document.getElementById('myText01').value)
+                let mySum = myIn01 + myIn01
+                let myReply = myIn01 + ' + ' + myIn01 + ' = ' + mySum
+                return myReply
+            }
+
+         </script>   
+    </body>
+</html>
