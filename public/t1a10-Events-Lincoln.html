@@ -31,7 +31,7 @@
             document.getElementById('myText01').value
         }">
 
-        <div id="myDiv01">...</div>
+        <div id="myDiv01">...</div><br><br>
 
         <b id="myB02" onmouseout="{
             document.getElementById('myB02').innerHTML = 'This is Nice.'
@@ -39,7 +39,33 @@
             document.getElementById('myB02').innerHTML = 'This is Cool.'
         }"> This is Bold </b> <br><br>
 
+        Enter your name: <input type="text" id="myInput" onfocus="focusFunction()" onblur="blurFunction()"><br><br>
+
+        <p>Select a colour from the list.</p>
+
+        <select id="mySelect" onchange="myFunction()">
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Purple">Purple</option>
+        </select>
+
+        <p id="myID01"></p>
+
          <script>
+
+            function focusFunction() {
+                document.getElementById("myInput").style.background = "red";
+            }
+
+            function blurFunction() {
+                document.getElementById("myInput").style.background = "blue";
+            }
+
+            function myFunction() {
+                var x = document.getElementById("mySelect").value;
+                document.getElementById("myID01").innerHTML = "You selected: " + x;
+            }
 
          </script>   
     </body>
