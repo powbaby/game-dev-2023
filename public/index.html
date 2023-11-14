@@ -9,7 +9,7 @@
 
         <h1 align=center>Hi, This is Lincoln's Index!</h1>
 
-        <button onclick="myFunction()">My Assignments</button>
+        <button onclick="myFunction()">My Term 1 Assignments</button>
 
         <div id="myDIV">
         <ol>
@@ -31,6 +31,15 @@
             <li><a href="t1a14-extend-class-Lincoln.html">t1a14 Extended Classes-Lincoln</a></li>
         </ol>
         </div>
+
+        <button onclick="myFunction02()">My Term 2 Assignments</button>
+        
+        <div id="myDIV02">
+        <ol>
+            <li><a href="t2a15-Spy-Lincoln.html">t2a15 Spy-Lincoln</a></li>
+        </ol>
+        </div>
+              
         
             <button onclick="myFunction01()">My Z Assignments</button>
         
@@ -48,6 +57,14 @@
          
             function myFunction() {
                 var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+            function myFunction01() {
+                var x = document.getElementById("myDIV02");
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
