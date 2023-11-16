@@ -1,1 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        h4,
+        h3 {
+            color: white;
+        }
+
+        </style>
+    </head>
+
+        <body id="myBody" style="background-repeat: repeat; background-size: 80%" background="gronk.jfif">
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center" >t2a16-Moveing-Background-Lincoln</h3>
+
+        <h4> Use WASD to NOT let Shrek use the toilet!!</h4>
+
+        <input id="myButton01" type="button" value="Run!" onclick="{
+            myTemp = '100px 0px'
+            myGlobalX -= 5
+            myTemp = myGlobalX + 'px 0px'
+            document.getElementById('myBody').style.backgroundPosition = myTemp
+        }">
+
+        <input type="button" value="Run Faster!!" onclick="{
+            clearInterval(myClock01)
+            mySpeed01 -= 30
+            if (mySpeed01 < 10) { mySpeed01 = 10 }
+            myClock01 = setInterval(function () {
+                document.getElementById('myButton01').click()
+            }, mySpeed01)
+        }">
+
+        <input type="button" value="Run Slower!!" onclick="{
+            clearInterval(myClock01)
+            mySpeed01 += 30
+            if (mySpeed01 > 1000) { mySpeed01 = 1000 }
+            myClock01 = setInterval(function () {
+                document.getElementById('myButton01').click()
+            }, mySpeed01)
+        }">
+
+        <script>
+            document.addEventListener('keydown', function (event) {
+                switch (event.key.toLowerCase()) {
+                    case 'w':
+                        document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 10 + 'px';
+                        break;
+                    case 'a':
+                        document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) - 10 + 'px';
+                        break;
+                    case 's':
+                        document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) + 10 + 'px';
+                        break;
+                    case 'd':
+                        document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px';
+                        break;
+                }
+            });
+        </script>
+
+        <img id="myImage01" style="position:relative; width:300px; height:600px; top:0px; left:0px;" src="toilet.jfif">
+
+        <script>
+            let myGlobalX = 0;
+            let myClock01;
+            let mySpeed01 = 400;
+        </script>
+    </body>
+</html>
