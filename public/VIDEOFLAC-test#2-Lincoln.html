@@ -1,1 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="GlobalCSS.css">
+        <style>
 
+        </style>
+    </head>
+    <body>
+
+        <h6>Version 0.0.1.</h6>
+        <h3 align="center">VIDEOFLAC-Test#2-Lincoln</h3>
+
+        <h4>This is my Code!</h4>
+
+        <input type="text" id="myText01" placeholder="Enter a number">
+
+        <input type="button" value="This Works" onclick="{
+            let myTemp = parseInt(document.getElementById('myText01').value);
+            let mySum = '';
+            document.getElementById('myDiv01').innerHTML = '';
+
+            let myArray;
+            myArray = ['Tom', 'Fred', 'Mary'];
+
+            for (let myLoop = 0; myLoop < myTemp; myLoop++) {
+                let currentName = myArray[myLoop % myArray.length];
+                let currentArrayValue = (currentName === 'Fred') ? 'wow' : myLoop;
+                mySum += 'Name: ' + currentName + ' Array: ' + currentArrayValue + '<br>';
+                
+                if (currentName === 'Fred') {
+                    console.log('wow');
+                }
+            }
+            document.getElementById('myDiv01').innerHTML = mySum;
+        }">
+
+        <div id="myDiv01">...</div>
+
+        <script>
+            
+            let myArray = ['Tom', 'Fred', 'Mary'];
+
+        </script>   
+    </body>
+</html>
