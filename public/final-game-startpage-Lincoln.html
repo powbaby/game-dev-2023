@@ -1,1 +1,28 @@
+<html>
+    <head>
+        <style>
 
+        </style>
+    </head>
+    <body style="background-color:black; background-repeat: repeat; background-size: 100%" background="stars.avif" onload="startAutoBackground()">
+
+        <h1 align="center" style="font-size:200px; color:white;" >PONG</h1>
+
+         <script>
+
+            let myGlobalY = 0
+            let myClock
+
+            function startAutoBackground() {
+                clearInterval(myClock);
+                let myTemp = '0px 0px';
+                myClock = setInterval(function () {
+                    myGlobalY -= 20;
+                    myTemp = '0px ' + myGlobalY + 'px';
+                    document.getElementById('myBody').style.backgroundPosition = myTemp;
+                }, 100);
+            }
+
+         </script>   
+    </body>
+</html>
