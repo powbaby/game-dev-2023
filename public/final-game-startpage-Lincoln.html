@@ -2,34 +2,27 @@
     <head>
         <style>
 
-            div {
-                width: 1600px;
-                height: 900px;
-                background-image:url('https://static.vecteezy.com/system/resources/previews/006/262/236/non_2x/night-sky-with-stars-sparkling-on-black-background-free-photo.jpg'); 
-                background-size: cover;
-                font-weight: bold;
-                position: relative;
-                animation: mymove 5s linear infinite;
-            }
-
-            @keyframes mymove {
-                0% {bottom: -800px;}
-                50% {bottom: 800px;}
-                100% {bottom: -800px;}
-            }
-
-
         </style>
     </head>
-    <body>
+    <body id="myBody" style="background-color:black; background-repeat: repeat; background-size: 100%" background="sar.gif" onload="startAutoBackground()">
 
         <h1 align="center" style="font-size:200px; color:white;" >PONG</h1>
 
-        <div>flow</div>
-
          <script>
 
-            
+            let myGlobalY = 0
+            let myClock
+
+            function startAutoBackground() {
+                clearInterval(myClock);
+                let myTemp = '0px 0px';
+                myClock = setInterval(function () {
+                    myGlobalY -= 20;
+                    myTemp = '0px ' + myGlobalY + 'px';
+                    document.getElementById('myBody').style.backgroundPosition = myTemp;
+                }, 100);
+            }
+
          </script>   
     </body>
 </html>
