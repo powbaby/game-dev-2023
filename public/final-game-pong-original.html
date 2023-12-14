@@ -1,22 +1,84 @@
 <html>
     <head>
         <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
 
+            body {
+                background: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #Can {
+                border: 3px solid #ffffff;
+            }
         </style>
     </head>
     <body style="background-color:black">
 
-        <center>
-            <h1 style="font-size:125px; color:white;" >ORIGINAL PONG</h1>
+        <h1 align="center" style="font-size:80px; color:white;" >ORIGINAL PONG</h1>
 
-            <canvas id="myCoolTag" width="1100" height="600" style="border:3px solid #ffffff;"></canvas>
-        </center>
+        <canvas id="Can" width="1000" height="550" style="border:3px solid #ffffff;"></canvas>
 
-         <script>
+        <script>
+            let myCanvas = document.getElementById('Can');
+            let ctx = myCanvas.getContext('2d');
+            let board = { top: 250 };
+            let board2 = { top: 250 };
 
-            let myCanvas=document.getElementById('myCoolTag');
-            let myContext=myCanvas.getContext('2d');
+            function paddle_1() {
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "white";
+                ctx.moveTo(10, board.top);
+                ctx.lineTo(10, board.top + 100);
+                ctx.stroke();
+                ctx.closePath();
+            }
 
-         </script>   
+            function paddle_2() {
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "white";
+                ctx.moveTo(myCanvas.width - 10, board2.top);
+                ctx.lineTo(myCanvas.width - 10, board2.top + 100);
+                ctx.stroke();
+                ctx.closePath();
+            }
+
+            document.addEventListener('keydown', function (event) {
+                switch (event.key.toLowerCase()) {
+                    case 'w':
+                        board.top = Math.max(0, board.top - 10);
+                        break;
+                    case 's':
+                        board.top = Math.min(myCanvas.height - 100, board.top + 10);
+                        break;
+                    case 'arrowup':
+                        board2.top = Math.max(0, board2.top - 10);
+                        break;
+                    case 'arrowdown':
+                        board2.top = Math.min(myCanvas.height - 100, board2.top + 10);
+                        break;
+                }
+                draw();
+            });
+
+            function draw() {
+                ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+                paddle_1();
+                paddle_2();
+            }
+
+            draw();
+
+            var boardSpeed = 6;
+            var ballSpeed = 5;
+        </script>
     </body>
 </html>
