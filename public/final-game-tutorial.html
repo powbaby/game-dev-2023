@@ -1,6 +1,5 @@
 <html>
     <head>
-        <link rel="stylesheet" href="GlobalCSS.css">
         <style>
 
         </style>
@@ -8,11 +7,13 @@
     <body id="myBody" style="background-repeat: repeat; background-size: 100%" background="box.jpg">
 
         <h6>Version 0.0.1.</h6>
-        <h3 align="center" >t2a21-Game-Template-Lincoln</h3>
+        <h3 align="center" >Game Tutorial</h3>
 
-        <img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="ball.png">
-        <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="line.jpg">
+        <img id="myImg01" style="position:absolute; width:100px; height:80px; top:450px; left:900px;"  src="ball.png">
+        <img id="myImg02" style="position:absolute; width:100px; height:80px; top:450px; left:1050px;" src="line.jpg">
+        <img id="myImg02" style="position:absolute; width:100px; height:80px; top:450px; left:750px;" src="line.jpg">
 
+        <center>
         <input type=button value="Auto Background Up" onclick="{
             clearInterval(myClock)
             let myTemp = '0px 0px'
@@ -27,6 +28,7 @@
             document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
             myCheckHit()     // checks for all collisions
         }"><br><br>
+        </center>
 
         <script>
 
