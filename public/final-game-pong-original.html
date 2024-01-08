@@ -21,7 +21,9 @@
     </head>
     <body style="background-color:black">
 
-        <h1 align="center" style="font-size:80px; color:white;" >ORIGINAL PONG</h1>
+        <h1 align="center" style="font-size:80px; color:white;">ORIGINAL PONG</h1>
+
+        <button onclick="startGame()" style="font-size: 20px; margin-bottom: 10px;">START</button>
 
         <canvas id="Can" width="1000" height="550" style="border:3px solid #ffffff;"></canvas>
 
@@ -30,6 +32,7 @@
             let ctx = myCanvas.getContext('2d');
             let board = { top: 250 };
             let board2 = { top: 250 };
+            let ball = { x: myCanvas.width / 2, y: myCanvas.height / 2, radius: 10, speedX: 3, speedY: 0 };
 
             function paddle_1() {
                 ctx.beginPath();
@@ -51,28 +54,86 @@
                 ctx.closePath();
             }
 
+            function drawBall() {
+                ctx.beginPath();
+                ctx.fillStyle = "white";
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+            }
+
             document.addEventListener('keydown', function (event) {
-                switch (event.key.toLowerCase()) {
+                switch (event.key) {
                     case 'w':
                         board.top = Math.max(0, board.top - 10);
                         break;
                     case 's':
                         board.top = Math.min(myCanvas.height - 100, board.top + 10);
                         break;
-                    case 'arrowup':
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                switch (event.key) {
+                    case 'ArrowUp':
                         board2.top = Math.max(0, board2.top - 10);
                         break;
-                    case 'arrowdown':
+                    case 'ArrowDown':
                         board2.top = Math.min(myCanvas.height - 100, board2.top + 10);
                         break;
                 }
-                draw();
             });
+
+            function startGame() {
+                // Start moving the ball towards the right paddle
+                ball.speedX = 3;
+                ball.speedY = 0;
+                // You can add more initialization logic if needed
+                gameLoop();
+            }
+
+            function gameLoop() {
+                draw();
+                requestAnimationFrame(gameLoop);
+            }
 
             function draw() {
                 ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
                 paddle_1();
                 paddle_2();
+                drawBall();
+
+                // Move the ball
+                ball.x += ball.speedX;
+                ball.y += ball.speedY;
+
+                // Check collision with the right paddle
+                if (
+                    ball.x + ball.radius > myCanvas.width - 10 &&
+                    ball.y > board2.top &&
+                    ball.y < board2.top + 100
+                ) {
+                    // Reverse the ball's horizontal direction
+                    ball.speedX = -ball.speedX;
+                }
+
+                // Check collision with the left paddle
+                if (
+                    ball.x - ball.radius < 10 &&
+                    ball.y > board.top &&
+                    ball.y < board.top + 100
+                ) {
+                    // Reverse the ball's horizontal direction
+                    ball.speedX = -ball.speedX;
+                }
+
+                // Check and handle collisions with the top and bottom walls
+                if (ball.y - ball.radius < 0 || ball.y + ball.radius > myCanvas.height) {
+                    // Reverse the ball's vertical direction
+                    ball.speedY = -ball.speedY;
+                }
+
+                // You can add more collision detection and ball movement logic here
             }
 
             draw();
