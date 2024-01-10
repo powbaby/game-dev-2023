@@ -91,7 +91,6 @@
             }
 
             function drawScores() {
-                // Update the score display
                 document.getElementById('leftScore').innerText = leftScore;
                 document.getElementById('rightScore').innerText = rightScore;
             }
@@ -120,13 +119,10 @@
 
             function startGame() {
                 if (!gameStarted) {
-                    // Reset the ball to the center
                     ball.x = myCanvas.width / 2;
                     ball.y = myCanvas.height / 2;
-                    // Set a constant speed for the ball
-                    ball.speedX = 3;
+                    ball.speedX = 6.5;
                     ball.speedY = 0;
-                    // You can add more initialization logic if needed
                     gameStarted = true;
                     gameLoop();
                 }
@@ -134,7 +130,9 @@
 
             function gameLoop() {
                 draw();
-                requestAnimationFrame(gameLoop);
+                if (gameStarted) {
+                    requestAnimationFrame(gameLoop);
+                }
             }
 
             function draw() {
@@ -144,62 +142,46 @@
                 drawBall();
                 drawScores();
 
-                // Check if the ball goes behind either paddle
                 if (ball.x - ball.radius > myCanvas.width) {
-                    // Reset the ball to the center
                     ball.x = myCanvas.width / 2;
                     ball.y = myCanvas.height / 2;
-                    // Stop the ball
                     ball.speedX = 0;
                     ball.speedY = 0;
                     gameStarted = false;
-                    // Increase the left score
                     leftScore++;
                 } else if (ball.x + ball.radius < 0) {
-                    // Reset the ball to the center
                     ball.x = myCanvas.width / 2;
                     ball.y = myCanvas.height / 2;
-                    // Stop the ball
                     ball.speedX = 0;
                     ball.speedY = 0;
                     gameStarted = false;
-                    // Increase the right score
                     rightScore++;
                 }
 
-                // Move the ball
                 ball.x += ball.speedX;
                 ball.y += ball.speedY;
 
-                // Check collision with the right paddle
                 if (
                     ball.x + ball.radius > myCanvas.width - 10 &&
                     ball.y > board2.top &&
                     ball.y < board2.top + 100
                 ) {
-                    // Calculate the impact point on the paddle
                     let impactPoint = (ball.y - board2.top) / 100;
-                    // Adjust the bounce angles based on the impact point
-                    ball.speedY = -3 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = -3 * Math.cos((impactPoint - 0.5) * Math.PI);
+                    ball.speedY = -6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
+                    ball.speedX = -6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
                 }
 
-                // Check collision with the left paddle
                 if (
                     ball.x - ball.radius < 10 &&
                     ball.y > board.top &&
                     ball.y < board.top + 100
                 ) {
-                    // Calculate the impact point on the paddle
                     let impactPoint = (ball.y - board.top) / 100;
-                    // Adjust the bounce angles based on the impact point
-                    ball.speedY = 3 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = 3 * Math.cos((impactPoint - 0.5) * Math.PI);
+                    ball.speedY = 6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
+                    ball.speedX = 6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
                 }
 
-                // Check and handle collisions with the top and bottom walls
                 if (ball.y - ball.radius < 0 || ball.y + ball.radius > myCanvas.height) {
-                    // Reverse the ball's vertical direction
                     ball.speedY = -ball.speedY;
                 }
             }
