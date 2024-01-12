@@ -151,6 +151,7 @@
                     ball.speedY = 0;
                     gameStarted = false;
                     leftScore++;
+                    drawScores();
                 } else if (ball.x + ball.radius < 0) {
                     ball.x = myCanvas.width / 2;
                     ball.y = myCanvas.height / 2;
@@ -158,6 +159,7 @@
                     ball.speedY = 0;
                     gameStarted = false;
                     rightScore++;
+                    drawScores();
                 }
 
                 ball.x += ball.speedX;
@@ -165,8 +167,8 @@
 
                 if (
                     ball.x + ball.radius > myCanvas.width - 10 &&
-                    ball.y > board2.top &&
-                    ball.y < board2.top + 100
+                    ball.y + ball.radius > board2.top &&
+                    ball.y - ball.radius < board2.top + 100
                 ) {
                     let impactPoint = (ball.y - board2.top) / 100;
                     ball.speedY = -6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
@@ -175,8 +177,8 @@
 
                 if (
                     ball.x - ball.radius < 10 &&
-                    ball.y > board.top &&
-                    ball.y < board.top + 100
+                    ball.y + ball.radius > board.top &&
+                    ball.y - ball.radius < board.top + 100
                 ) {
                     let impactPoint = (ball.y - board.top) / 100;
                     ball.speedY = 6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
