@@ -1,196 +1,197 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-            }
+<head>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
-            body {
-                background: black;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                color: white;
-            }
+        body {
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
 
-            #Can {
-                border: 3px solid #ffffff;
-            }
+        #Can {
+            border: 3px solid #ffffff;
+        }
 
-            #score {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                font-size: 24px;
-                margin-top: 10px;
-                max-width: 300px;
-            }
+        #score {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 24px;
+            margin-top: 10px;
+            max-width: 300px;
+        }
 
-            #leftScore, #rightScore {
-                flex: 1;
-                text-align: center;
-            }
+        #leftScore, #rightScore {
+            flex: 1;
+            text-align: center;
+        }
 
-            #startButton {
-                font-size: 20px;
-                margin-top: 10px;
-            }
-        </style>
-    </head>
-    <body style="background-color:black">
+        #startButton {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body style="background-color:black">
 
-        <h1 align="center" style="font-size:80px; color:white;">ORIGINAL PONG</h1>
+<h1 align="center" style="font-size:80px; color:white;">ORIGINAL PONG</h1>
 
-        <div id="score">
-            <div id="leftScore">0</div>
-            <div id="rightScore">0</div>
-        </div>
+<div id="score">
+    <div id="leftScore">0</div>
+    <div id="rightScore">0</div>
+</div>
 
-        <button id="startButton" onclick="startGame()">START</button>
+<button id="startButton" onclick="startGame()">START</button>
 
-        <canvas id="Can" width="1000" height="550" style="border:3px solid #ffffff;"></canvas>
+<canvas id="Can" width="1000" height="550" style="border:3px solid #ffffff;"></canvas>
 
-        <script>
-            let myCanvas = document.getElementById('Can');
-            let ctx = myCanvas.getContext('2d');
-            let board = { top: 250 };
-            let board2 = { top: 250 };
-            let ball = { x: myCanvas.width / 2, y: myCanvas.height / 2, radius: 10, speedX: 0, speedY: 0 };
-            let leftScore = 0;
-            let rightScore = 0;
-            let gameStarted = false;
+<script>
+    let myCanvas = document.getElementById('Can');
+    let ctx = myCanvas.getContext('2d');
+    let board = { top: 250, speed: 40 };
+    let board2 = { top: 250, speed: 40 };
+    let ball = { x: myCanvas.width / 2, y: myCanvas.height / 2, radius: 10, speedX: 0, speedY: 0 };
+    let leftScore = 0;
+    let rightScore = 0;
+    let gameStarted = false;
 
-            function paddle_1() {
-                ctx.beginPath();
-                ctx.lineWidth = 3;
-                ctx.strokeStyle = "white";
-                ctx.moveTo(10, board.top);
-                ctx.lineTo(10, board.top + 100);
-                ctx.stroke();
-                ctx.closePath();
-            }
+    function paddle_1() {
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "white";
+        ctx.moveTo(10, board.top);
+        ctx.lineTo(10, board.top + 100);
+        ctx.stroke();
+        ctx.closePath();
+    }
 
-            function paddle_2() {
-                ctx.beginPath();
-                ctx.lineWidth = 3;
-                ctx.strokeStyle = "white";
-                ctx.moveTo(myCanvas.width - 10, board2.top);
-                ctx.lineTo(myCanvas.width - 10, board2.top + 100);
-                ctx.stroke();
-                ctx.closePath();
-            }
+    function paddle_2() {
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "white";
+        ctx.moveTo(myCanvas.width - 10, board2.top);
+        ctx.lineTo(myCanvas.width - 10, board2.top + 100);
+        ctx.stroke();
+        ctx.closePath();
+    }
 
-            function drawBall() {
-                ctx.beginPath();
-                ctx.fillStyle = "white";
-                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.closePath();
-            }
+    function drawBall() {
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+    }
 
-            function drawScores() {
-                document.getElementById('leftScore').innerText = leftScore;
-                document.getElementById('rightScore').innerText = rightScore;
-            }
+    function drawScores() {
+        document.getElementById('leftScore').innerText = leftScore;
+        document.getElementById('rightScore').innerText = rightScore;
+    }
 
-            document.addEventListener('keydown', function (event) {
-                switch (event.key) {
-                    case 'w':
-                        board.top = Math.max(0, board.top - 10);
-                        break;
-                    case 's':
-                        board.top = Math.min(myCanvas.height - 100, board.top + 10);
-                        break;
-                }
-            });
+    document.addEventListener('keydown', function (event) {
+        switch (event.key) {
+            case 'w':
+                board.top = Math.max(0, board.top - board.speed);
+                break;
+            case 's':
+                board.top = Math.min(myCanvas.height - 100, board.top + board.speed);
+                break;
+        }
+    });
 
-            document.addEventListener('keydown', function (event) {
-                switch (event.key) {
-                    case 'ArrowUp':
-                        board2.top = Math.max(0, board2.top - 10);
-                        break;
-                    case 'ArrowDown':
-                        board2.top = Math.min(myCanvas.height - 100, board2.top + 10);
-                        break;
-                }
-            });
+    document.addEventListener('keydown', function (event) {
+        switch (event.key) {
+            case 'ArrowUp':
+                board2.top = Math.max(0, board2.top - board2.speed);
+                break;
+            case 'ArrowDown':
+                board2.top = Math.min(myCanvas.height - 100, board2.top + board2.speed);
+                break;
+        }
+    });
 
-            function startGame() {
-                if (!gameStarted) {
-                    ball.x = myCanvas.width / 2;
-                    ball.y = myCanvas.height / 2;
-                    ball.speedX = 6.5;
-                    ball.speedY = 0;
-                    board.top = (myCanvas.height - 100) / 2;
-                    board2.top = (myCanvas.height - 100) / 2;
-                    gameStarted = true;
-                    gameLoop();
-                }
-            }
+    function startGame() {
+        if (!gameStarted) {
+            ball.x = myCanvas.width / 2;
+            ball.y = myCanvas.height / 2;
+            ball.speedX = 6.5;
+            ball.speedY = 0;
+            board.top = (myCanvas.height - 100) / 2;
+            board2.top = (myCanvas.height - 100) / 2;
+            gameStarted = true;
+            gameLoop();
+        }
+    }
 
-            function gameLoop() {
-                draw();
-                if (gameStarted) {
-                    requestAnimationFrame(gameLoop);
-                }
-            }
+    function gameLoop() {
+        draw();
+        if (gameStarted) {
+            requestAnimationFrame(gameLoop);
+        }
+    }
 
-            function draw() {
-                ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-                paddle_1();
-                paddle_2();
-                drawBall();
-                drawScores();
+    function draw() {
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+        paddle_1();
+        paddle_2();
+        drawBall();
+        drawScores();
 
-                if (ball.x - ball.radius > myCanvas.width) {
-                    ball.x = myCanvas.width / 2;
-                    ball.y = myCanvas.height / 2;
-                    ball.speedX = 0;
-                    ball.speedY = 0;
-                    gameStarted = false;
-                    leftScore++;
-                    drawScores();
-                } else if (ball.x + ball.radius < 0) {
-                    ball.x = myCanvas.width / 2;
-                    ball.y = myCanvas.height / 2;
-                    ball.speedX = 0;
-                    ball.speedY = 0;
-                    gameStarted = false;
-                    rightScore++;
-                    drawScores();
-                }
+        if (ball.x - ball.radius > myCanvas.width) {
+            ball.x = myCanvas.width / 2;
+            ball.y = myCanvas.height / 2;
+            ball.speedX = 0;
+            ball.speedY = 0;
+            gameStarted = false;
+            leftScore++;
+            drawScores();
+        } else if (ball.x + ball.radius < 0) {
+            ball.x = myCanvas.width / 2;
+            ball.y = myCanvas.height / 2;
+            ball.speedX = 0;
+            ball.speedY = 0;
+            gameStarted = false;
+            rightScore++;
+            drawScores();
+        }
 
-                ball.x += ball.speedX;
-                ball.y += ball.speedY;
+        ball.x += ball.speedX;
+        ball.y += ball.speedY;
 
-                if (
-                    ball.x + ball.radius > myCanvas.width - 10 &&
-                    ball.y + ball.radius > board2.top &&
-                    ball.y - ball.radius < board2.top + 100
-                ) {
-                    let impactPoint = (ball.y - board2.top) / 100;
-                    ball.speedY = -6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = -6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
-                }
+        if (
+            ball.x + ball.radius > myCanvas.width - 10 &&
+            ball.y + ball.radius > board2.top &&
+            ball.y - ball.radius < board2.top + 100
+        ) {
+            let impactPoint = (ball.y - board2.top) / 100;
+            ball.speedY = -6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
+            ball.speedX = -6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
+        }
 
-                if (
-                    ball.x - ball.radius < 10 &&
-                    ball.y + ball.radius > board.top &&
-                    ball.y - ball.radius < board.top + 100
-                ) {
-                    let impactPoint = (ball.y - board.top) / 100;
-                    ball.speedY = 6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = 6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
-                }
+        if (
+            ball.x - ball.radius < 10 &&
+            ball.y + ball.radius > board.top &&
+            ball.y - ball.radius < board.top + 100
+        ) {
+            let impactPoint = (ball.y - board.top) / 100;
+            ball.speedY = 6.5 * Math.sin((impactPoint - 0.5) * Math.PI);
+            ball.speedX = 6.5 * Math.cos((impactPoint - 0.5) * Math.PI);
+        }
 
-                if (ball.y - ball.radius < 0 || ball.y + ball.radius > myCanvas.height) {
-                    ball.speedY = -ball.speedY;
-                }
-            }
+        if (ball.y - ball.radius < 0 || ball.y + ball.radius > myCanvas.height) {
+            ball.speedY = -ball.speedY;
+        }
+    }
 
-            draw();
-        </script>
-    </body>
+    draw();
+</script>
+</body>
 </html>
