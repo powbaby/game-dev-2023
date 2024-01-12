@@ -175,8 +175,8 @@
                     ball.y - ball.radius < board2.top + 100
                 ) {
                     let impactPoint = (ball.y - board2.top) / 100;
-                    ball.speedY = -8 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = -8 * Math.cos((impactPoint - 0.5) * Math.PI);
+                    ball.speedY = -9 * Math.sin((impactPoint - 0.5) * Math.PI);
+                    ball.speedX = -9 * Math.cos((impactPoint - 0.5) * Math.PI);
                 }
 
                 if (
@@ -185,8 +185,8 @@
                     ball.y - ball.radius < board.top + 100
                 ) {
                     let impactPoint = (ball.y - board.top) / 100;
-                    ball.speedY = 8 * Math.sin((impactPoint - 0.5) * Math.PI);
-                    ball.speedX = 8 * Math.cos((impactPoint - 0.5) * Math.PI);
+                    ball.speedY = 9 * Math.sin((impactPoint - 0.5) * Math.PI);
+                    ball.speedX = 9 * Math.cos((impactPoint - 0.5) * Math.PI);
                 }
 
                 if (ball.y - ball.radius < 0 || ball.y + ball.radius > myCanvas.height) {
