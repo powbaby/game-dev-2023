@@ -119,6 +119,7 @@
 
             function startGame() {
                 if (!gameStarted) {
+                    mySound1.play();
                     ball.x = myCanvas.width / 2;
                     ball.y = myCanvas.height / 2;
                     ball.speedX = 0;
@@ -129,7 +130,6 @@
                     
                     let randomDirection = Math.random() > 0.5 ? 1 : -1;
                     ball.speedX = 6.5 * randomDirection;
-                    mySound1.play();
 
                     gameLoop();
                 }
