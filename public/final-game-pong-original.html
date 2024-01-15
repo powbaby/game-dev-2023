@@ -103,11 +103,6 @@
                     case 's':
                         board.top = Math.min(myCanvas.height - 100, board.top + board.speed);
                         break;
-                }
-            });
-
-            document.addEventListener('keydown', function (event) {
-                switch (event.key) {
                     case 'ArrowUp':
                         board2.top = Math.max(0, board2.top - board2.speed);
                         break;
@@ -116,6 +111,7 @@
                         break;
                 }
             });
+
 
             function startGame() {
                 if (!gameStarted) {
